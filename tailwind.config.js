@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 module.exports = {
   mode: 'jit',
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -17,11 +18,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#ec4755',
+        primary: '#E71727',
         secondary: '#a12c34',
         tertiary: '#99a0a3',
         border: '#1a2e35',
-        background: '#ffffff',
+        background: '#FFFAF5',
+        text: "#1D1D1D",
+        textHover: "#0D0D0D"
       },
       animation: {
         vote: 'vote 1s ease-in-out',
@@ -39,6 +42,10 @@ module.exports = {
           },
         },
       },
+      backgroundImage: {
+        'quality': "url('/assets/images/bg-quality.png')",
+        'barber': "url('/assets/images/bg-barber.png')"
+      }
     },
   },
   variants: {},

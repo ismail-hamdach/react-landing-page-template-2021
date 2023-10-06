@@ -1,24 +1,24 @@
 {
   "company": {
-    "name": "React landing page 2021",
+    "name": "Barber House",
     "logo": "/assets/images/logo.png"
   },
   "navigation": [
     {
-      "name": "Product",
+      "name": "Qui somme nous",
       "href": "product"
     },
     {
-      "name": "Features",
+      "name": "Nos services",
       "href": "features"
     },
 
     {
-      "name": "Pricing",
+      "name": "Emplacement",
       "href": "pricing"
     },
     {
-      "name": "About",
+      "name": "Contactez-nous",
       "href": "about"
     }
   ],
@@ -27,10 +27,10 @@
     "href": "#"
   },
   "mainHero": {
-    "title": "Use me as your",
-    "subtitle": "landing page.",
+    "title": "Un regard perçant,",
+    "subtitle": "une coupe de près.",
     "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-    "img": "/assets/images/happyTeam.jpeg",
+    "img": "/assets/images/happyTeam.png",
     "primaryAction": {
       "text": "Get started",
       "href": "#"
@@ -44,9 +44,11 @@
     "title": "React landing page 2021",
     "items": [
       {
-        "title": "A plug n play template",
-        "description": "Just edit the config.json file with details about your company and voila your beautiful state of the art landing page is ready to go live! Remember to also update your assets, add any images you want to show to /assets/images and link them in the config.json",
-        "img": "/assets/images/product1.jpg"
+        "title": "Qui somme nous",
+        "description": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,",
+        "description2": "quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.",
+        "description3": "Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.",
+        "img": "/assets/images/happyTeam.png"
       },
       {
         "title": "Make it your own!",
@@ -56,9 +58,10 @@
     ]
   },
   "features": {
-    "title": "Latest & greatest ",
+    "background": "/assets/images/bg-quality.png",
+    "title": "Nos services",
     "subtitle": "All the best technologies out there!",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+    "description": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,",
     "items": [
       {
         "name": "React.js",
@@ -81,6 +84,10 @@
         "icon": "/assets/images/ts.png"
       }
     ]
+  },
+  "location": {
+    "title": "Emplacement",
+    "location": "France"
   },
   "pricing": {
     "title": "Pricing",

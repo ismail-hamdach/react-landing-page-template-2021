@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+/* eslint-disable prettier/prettier */
+import React, { Fragment } from "react";
 
-import { Popover, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { Link } from 'react-scroll';
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from "react-scroll";
 
-import config from '../config/index.json';
+import config from "../config/index.json";
 
 const Menu = () => {
   const { navigation, company, callToAction } = config;
@@ -12,24 +13,14 @@ const Menu = () => {
 
   return (
     <>
-      <svg
-        className={`hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-background transform translate-x-1/2`}
-        fill="currentColor"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <polygon points="50,0 100,0 50,100 0,100" />
-      </svg>
-
       <Popover>
-        <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
+        <div className="relative pt-12 px-6 sm:px-6 lg:px-8">
           <nav
-            className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+            className="relative flex items-center justify-between sm:h-10 lg:justify-between w-full"
             aria-label="Global"
           >
             <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-              <div className="flex items-center justify-between w-full md:w-auto">
+              <div className="flex items-center justify-center w-full md:w-auto">
                 <a href="#">
                   <span className="sr-only">{companyName}</span>
                   <img alt="logo" className="h-16 w-auto sm:h-16" src={logo} />
@@ -44,7 +35,10 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+            <div
+              className="hidden md:block md:m
+            -10 md:pr-4 md:space-x-8"
+            >
               {navigation.map((item) => (
                 <Link
                   spy={true}
@@ -53,16 +47,16 @@ const Menu = () => {
                   duration={1000}
                   key={item.name}
                   to={item.href}
-                  className="font-medium text-gray-500 hover:text-gray-900"
+                  className="font-medium text-text hover:text-textHover"
                 >
                   {item.name}
                 </Link>
               ))}
               <a
                 href="#"
-                className={`font-medium text-primary hover:text-secondary`}
+                className={`font-medium text-white hover:text-secondary bg-primary py-4 px-9 rounded-full`}
               >
-                Call to action
+                Reserver
               </a>
             </div>
           </nav>
