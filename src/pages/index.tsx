@@ -11,8 +11,8 @@ import MainHero from "../components/MainHero";
 import MainHeroImage from "../components/MainHeroImage";
 import Product from "../components/Product";
 import Quality from "../components/Quality";
-import Services from "../components/Service";
 import Reservation from "../components/Reservation";
+import Services from "../components/Service";
 
 const App = () => {
   return (

@@ -4,18 +4,10 @@ import React from "react";
 
 import Image from "next/image";
 
-import config from "../config/index.json";
-import Divider from "./Divider";
+
 
 const Quality = () => {
-  const { features } = config;
-  const {
-    title,
-    subtitle,
-    description,
-    items: featuresList,
-    background,
-  } = features;
+  
   return (
     <div
       className={` bg-barber bg-no-repeat bg-center bg-cover h-screen`}
