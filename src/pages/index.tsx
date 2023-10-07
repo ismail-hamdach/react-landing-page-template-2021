@@ -15,7 +15,7 @@ import Services from "../components/Service";
 
 const App = () => {
   return (
-    <div className={`bg-background grid overflow-hidden`}>
+    <div className={`bg-background grid overflow-hidden scroll-smooth`}>
       <div className={`relative bg-background`}>
         <div className="fixed w-full ">
           <Header />
@@ -52,7 +52,7 @@ const App = () => {
       </LazyShow>
       <LazyShow>
         <>
-          <Canvas />
+          {/* <Canvas /> */}
           <About />
         </>
       </LazyShow>

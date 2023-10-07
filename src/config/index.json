@@ -156,5 +156,9 @@
       "twitter": "https://twitter.com/issaafkattan",
       "linkedin": "https://www.linkedin.com/in/issaaf-kattan/"
     }
+  },
+  "reservation": {
+    "title": "Réservation et demande d'informations",
+    "description": "Réservez votre coiffure dès maintenant et venez nous rendre visite pour une élégante coiffure."
   }
 }

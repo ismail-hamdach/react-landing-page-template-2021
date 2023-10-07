@@ -17,6 +17,28 @@ a:hover {
   @apply border-b-2 border-red-700;
 }
 
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  display: inline;
+  cursor: pointer;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  /* fill: #4691f6; */
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
 
 
 .content p {
