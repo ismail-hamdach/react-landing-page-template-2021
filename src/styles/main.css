@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;800&display=swap');
+
+* {
+  font-family: 'Almarai', sans-serif;
+}
 
 :root {
   --color-primary: #ec4755;

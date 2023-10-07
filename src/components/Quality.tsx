@@ -9,13 +9,11 @@ const Quality = () => {
   
   return (
     <div
-      className={` bg-barber bg-no-repeat bg-center bg-cover h-screen`}
-      id="Location"
+      className={` bg-barber bg-no-repeat bg-right lg:bg-center bg-cover h-96 md:h-screen`}
+      id="Quality"
     >
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-right">
-          <Image src="/assets/images/quote.png" width={900} height={900} alt="quote" objectFit="contain"/>
-        </div>
+      <div className="flex justify-end mx-auto lg:text-right h-full">
+          <Image src="/assets/images/quote.png" width={900} height={350} alt="quote" objectFit="contain"/>
       </div>
     </div>
   );

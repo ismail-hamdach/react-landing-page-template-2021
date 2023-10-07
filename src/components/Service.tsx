@@ -10,7 +10,7 @@ const Service = () => {
   } = features;
   return (
     <div
-      className={`py-36 bg-quality bg-no-repeat bg-center bg-cover`}
+      className={`py-36 bg-quality bg-no-repeat bg-center bg-cover text-center lg:text-justify`}
       id="features"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

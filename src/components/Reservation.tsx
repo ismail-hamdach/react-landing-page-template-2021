@@ -80,8 +80,8 @@ const Reservation = () => {
               </div>
               <Form className="mt-10 p-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="py-2 sm:col-span-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    Nom complet*
+                  <span className="px-1 text-sm text-gray-600 after:content-['*'] after:ml-2 after:text-primary">
+                    Nom complet
                   </span>
                   <Field
                     placeholder="Nom complet"
@@ -96,8 +96,8 @@ const Reservation = () => {
                 </div>
 
                 <div className="py-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    Addresse Email*
+                  <span className="px-1 text-sm text-gray-600 after:content-['*'] after:ml-2 after:text-primary">
+                    Addresse Email
                   </span>
                   <Field
                     placeholder="Addresse Email"
@@ -111,8 +111,8 @@ const Reservation = () => {
                   ) : null}
                 </div>
                 <div className="py-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    Numéro de téléphone*
+                  <span className="px-1 text-sm text-gray-600 after:content-['*'] after:ml-2 after:text-primary">
+                    Numéro de téléphone
                   </span>
                   <Field
                     placeholder="Numéro de téléphone"
@@ -126,14 +126,14 @@ const Reservation = () => {
                   ) : null}
                 </div>
                 <div className="py-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    Choisir la date*
+                  <span className="px-1 text-sm text-gray-600 after:content-['*'] after:ml-2 after:text-primary">
+                    Choisir la date
                   </span>
                   <Field
                     placeholder="Choisir la date"
                     name="date"
                     type="date"
-                    className="text-md block px-3 py-2  rounded-lg w-full
+                    className="text-md block px-3 py-2  rounded-lg w-full text-text
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                   />
                   {errors.date && touched.date ? (
@@ -141,8 +141,8 @@ const Reservation = () => {
                   ) : null}
                 </div>
                 <div className="py-2">
-                  <span className="px-1 text-sm text-gray-600">
-                    Choisir horaire*
+                  <span className="px-1 text-sm text-gray-600 after:content-['*'] after:ml-2 after:text-primary">
+                    Choisir horaire
                   </span>
                   <Field
                     placeholder="Choisir horaire"

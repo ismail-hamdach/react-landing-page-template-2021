@@ -43,7 +43,8 @@ module.exports = {
       },
       backgroundImage: {
         'quality': "url('/assets/images/bg-quality.png')",
-        'barber': "url('/assets/images/bg-barber.png')"
+        'barber': "url('/assets/images/bg-barber.png')",
+        'hero': "url('/assets/images/happyTeam.png')",
       }
     },
   },

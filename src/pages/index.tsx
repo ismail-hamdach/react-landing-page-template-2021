@@ -12,17 +12,22 @@ import Product from "../components/Product";
 import Quality from "../components/Quality";
 import Reservation from "../components/Reservation";
 import Services from "../components/Service";
+import MainHeroMobile from "../components/MainHeroMobile";
 
 const App = () => {
   return (
-    <div className={`bg-background grid overflow-hidden scroll-smooth`}>
+    <div className={`bg-background  overflow-hidden scroll-smooth`}>
       <div className={`relative bg-background`}>
-        <div className="fixed w-full ">
+        <div className="fixed z-50 w-full ">
           <Header />
         </div>
-        <div className="flex mx-auto">
+        <div className="mx-auto hidden lg:flex">
           <MainHeroImage />
           <MainHero />
+        </div>
+        <div className="flex mx-auto lg:hidden">
+          {/* <MainHeroImage /> */}
+          <MainHeroMobile />
         </div>
       </div>
       {/* <Canvas /> */}
