@@ -45,6 +45,8 @@ module.exports = {
         'quality': "url('/assets/images/bg-quality.png')",
         'barber': "url('/assets/images/bg-barber.png')",
         'hero': "url('/assets/images/happyTeam.png')",
+        'loading': "url('/assets/images/loading.gif')",
+        'montrez': "url('/assets/images/montrez-moi.png')"
       }
     },
   },

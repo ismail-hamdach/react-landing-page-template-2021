@@ -4,8 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;800&display=swap');
 
+@font-face {
+  font-family: MyFont;
+  src: url(MabryPro-Regular.ttf);
+  font-weight: bolder;
+  font-style: normal;
+}
+
 * {
-  font-family: 'Almarai', sans-serif;
+  font-family: MyFont, 'Almarai', sans-serif;
 }
 
 :root {

@@ -10,7 +10,7 @@ const Divider = ({
   width = "w-64",
   center = false,
   bg = "bg-primary",
-  opacity = "opacity-25",
+  opacity = "opacity-100",
 }: DividerProps) => {
   return (
     <div className={`w-full mb-4`}>

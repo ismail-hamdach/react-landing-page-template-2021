@@ -2,7 +2,6 @@ import React from "react";
 
 import About from "../components/About";
 import Analytics from "../components/Analytics";
-import Canvas from "../components/Canvas";
 import Header from "../components/Header";
 import LazyShow from "../components/LazyShow";
 import Location from "../components/Location";
@@ -13,6 +12,7 @@ import Quality from "../components/Quality";
 import Reservation from "../components/Reservation";
 import Services from "../components/Service";
 import MainHeroMobile from "../components/MainHeroMobile";
+import Galery from "../components/Galery";
 
 const App = () => {
   return (
@@ -48,6 +48,9 @@ const App = () => {
           <Quality />
           {/* <Canvas /> */}
         </>
+      </LazyShow>
+      <LazyShow>
+        <Galery />
       </LazyShow>
       <LazyShow>
         <Location />

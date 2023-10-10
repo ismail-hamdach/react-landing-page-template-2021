@@ -5,7 +5,44 @@ import * as Yup from "yup";
 import config from "../config/index.json";
 import Divider from "./Divider";
 
+import { sendContactForm } from "../lib/api";
+
+// import {sendContactForm} from "../../lib/api"
+import { toast } from "react-toastify";
+
 const Reservation = () => {
+  const handleSubmit = async (values: any, { resetForm }: any) => {
+    // Enable loading effect
+    // setIsSubmitting(true);
+
+    try {
+      // send mail
+      await sendContactForm(values);
+
+      // reset fields
+      resetForm();
+
+      // stop loading effect
+
+      toast("Envoyé avec success", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "success",
+      });
+    } catch (error: any) {
+      // stop loading effect
+      toast("Erreur, contactez nous via notre addresse email pour cette issue", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "error",
+      });
+      console.log(error.message);
+    }
+    console.log(JSON.stringify(values));
+
+    // setIsSubmitting(false);
+  };
+
   const { title, description } = config.reservation;
 
   const phoneRegExp =
@@ -66,11 +103,9 @@ const Reservation = () => {
             horaire: "",
           }}
           validationSchema={ContactSchema}
-          onSubmit={async (values) => {
-            alert({});
-          }}
+          onSubmit={handleSubmit}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, isSubmitting }) => (
             <>
               <div
                 className="bg-green-400 p-2 rounded mx-3 text-white text-center "
@@ -149,7 +184,7 @@ const Reservation = () => {
                     name="horaire"
                     type="select"
                     as="select"
-                    className="text-md block px-3 py-2  rounded-lg w-full
+                    className="text-md block px-3 py-3 rounded-lg w-full
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-primary focus:outline-none"
                   >
                     <option value={""} label="Choisir">
@@ -196,14 +231,23 @@ const Reservation = () => {
                   ) : null}
                 </div>
 
-                <button
-                  type="submit"
-                  className="mt-3 sm:col-span-2 text-lg font-semibold
+                
+                  <div
+                    className={`${isSubmitting ? "block" : "hidden"} mt-3 sm:col-span-2 text-lg font-semibold
+            bg-loading bg-center bg-no-repeat bg-contain w-full text-white rounded-lg
+            h-32 transition`}
+                  >
+                  </div>
+                
+                  <button
+                    type="submit"
+                    className={`${!isSubmitting ? "block" : "hidden"} mt-3 sm:col-span-2 text-lg font-semibold
                 bg-primary w-full text-white rounded-lg
-                px-6 py-3 block shadow-xl hover:text-white hover:bg-primaryDarker"
-                >
-                  Soumettre ma demande
-                </button>
+                px-6 py-3 shadow-xl hover:text-white hover:bg-primaryDarker transition`}
+                  >
+                    Soumettre ma demande
+                  </button>
+                
               </Form>
             </>
           )}

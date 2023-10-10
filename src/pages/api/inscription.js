@@ -1,13 +1,7 @@
 import { mailOptions, transporter } from "../../config/nodemailer";
 
 const CONTACT_MESSAGE_FIELDS = {
-  fullname: "Nom complet",
   email: "Email",
-  telephone: "Numéro de téléphone",
-  date: "Date de résérvation",
-  horaire: "Horaire de résérvation",
-  comment: "Commentaire",
-  foundMessage: "Comment nous avez-vous trouvé",
 };
 
 const generateEmailContent = (data) => {
@@ -69,11 +63,7 @@ const handler = async (req, res) => {
     const data = req.body;
     if (
       !data ||
-      !data.fullname ||
-      !data.email ||
-      !data.telephone ||
-      !data.date ||
-      !data.horaire
+      !data.email
     ) {
       return res.status(400).send({ message: "Bad request" });
     }
@@ -82,7 +72,7 @@ const handler = async (req, res) => {
       await transporter.sendMail({
         ...mailOptions,
         ...generateEmailContent(data),
-        subject: "Résérvation pour Barber House",
+        subject: "Inscription pour news letter de Barber House",
       });
 
       return res.status(200).json({ success: true });

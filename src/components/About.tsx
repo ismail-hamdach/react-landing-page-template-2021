@@ -3,11 +3,12 @@ import React from "react";
 import Image from "next/image";
 import { Link } from "react-scroll";
 
-import config from "../config/index.json";
 import Divider from "./Divider";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import LinkSVG from "./LinkSVG";
+import { inscrireNewsLetter } from "../lib/api";
+import { toast } from "react-toastify";
 
 const About = () => {
   const EmailSchema = Yup.object().shape({
@@ -15,6 +16,41 @@ const About = () => {
       .email("S'il vous plaît entrez votre email")
       .required("S'il vous plaît entrez votre email"),
   });
+
+  const handleSubmit = async (values: any, { resetForm }: any) => {
+    // Enable loading effect
+    // setIsSubmitting(true);
+
+    try {
+      // send mail
+      await inscrireNewsLetter(values);
+
+      // reset fields
+      resetForm();
+
+      // stop loading effect
+
+      toast("Envoyé avec success", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "success",
+      });
+    } catch (error: any) {
+      // stop loading effect
+      toast(
+        "Erreur, contactez nous via notre addresse email pour cette issue",
+        {
+          hideProgressBar: true,
+          autoClose: 2000,
+          type: "error",
+        }
+      );
+      console.log(error.message);
+    }
+    console.log(JSON.stringify(values));
+
+    // setIsSubmitting(false);
+  };
 
   return (
     <>
@@ -40,11 +76,9 @@ const About = () => {
                   email: "",
                 }}
                 validationSchema={EmailSchema}
-                onSubmit={async (values) => {
-                  alert(values.email);
-                }}
+                onSubmit={handleSubmit}
               >
-                {({ errors, touched }) => (
+                {({ errors, touched, isSubmitting }) => (
                   <>
                     <div
                       className="bg-green-400 p-2 rounded mx-3 text-white text-center "
@@ -63,7 +97,9 @@ const About = () => {
                       </div>
                       <button
                         type="submit"
-                        className="text-md px-3 py-1 text-center  rounded-r-lg bg-primary"
+                        className={`${
+                          !isSubmitting ? "block" : "hidden"
+                        } transition text-md px-3 py-1 text-center  rounded-r-lg bg-primary`}
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +110,12 @@ const About = () => {
                           <path d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"></path>
                         </svg>
                       </button>
+
+                      <div
+                        className={`${
+                          isSubmitting ? "block" : "hidden"
+                        } text-md ml-5 px-6 py-6 text-center  rounded-r-lg bg-loading bg-center bg-no-repeat bg-contain transition`}
+                      ></div>
                       {errors.email && touched.email ? (
                         <div className="text-red-600 mx-5">{errors.email}</div>
                       ) : null}

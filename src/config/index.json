@@ -16,10 +16,6 @@
     {
       "name": "Emplacement",
       "href": "Location"
-    },
-    {
-      "name": "Contactez-nous",
-      "href": "about"
     }
   ],
   "callToAction": {

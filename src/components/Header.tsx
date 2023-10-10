@@ -8,7 +8,7 @@ import config from "../config/index.json";
 import Image from "next/image";
 
 const Menu = () => {
-  const { navigation, company, callToAction } = config;
+  const { navigation, company } = config;
   const { name: companyName, logo } = company;
 
   return (
@@ -58,11 +58,23 @@ const Menu = () => {
                 </Link>
               ))}
               <a
-                href="#Reservation"
+                href="/contactus"
+                className="font-medium text-text hover:text-textHover hover:cursor-pointer"
+              >
+                Contactez-nous
+              </a>
+
+              <Link
+                spy={true}
+                active="active"
+                smooth={true}
+                duration={1000}
+                key={"reservation"}
+                to={"Reservation"}
                 className={`font-medium text-white bg-primary hover:border-0 hover:bg-text transition py-4 px-9 rounded-full`}
               >
                 Reserver
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
@@ -87,7 +99,9 @@ const Menu = () => {
               <div>
                 <div className="px-4 pt-4 flex items-center justify-between">
                   <div>
-                    <img className="h-8 md:h-12 w-auto" src={logo} alt="" />
+                    <div className="relative h-8 md:h-12 w-auto">
+                      <Image layout="fill" src={logo} alt="" />
+                    </div>
                   </div>
                   <div className="-mr-2">
                     <Popover.Button
@@ -112,16 +126,27 @@ const Menu = () => {
                       <Popover.Button>{item.name}</Popover.Button>
                     </Link>
                   ))}
+                  <Popover.Button>
+                    <a
+                      href={"/contactus"}
+                      className="block md:text-2xl px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 hover:border-0"
+                    >
+                      Contactez-nous
+                    </a>
+                  </Popover.Button>
                 </div>
               </div>
-              <Popover.Button>
-                <a
-                  href={"#Reservation"}
-                  className={`block md:text-2xl w-full px-5 py-3 text-center font-medium text-white bg-primary hover:border-0 rounded-2xl active:scale-105 transition`}
-                >
-                  Réserver
-                </a>
-              </Popover.Button>
+              <Link
+                spy={true}
+                active="active"
+                smooth={true}
+                duration={1000}
+                key={"reservation"}
+                to={"Reservation"}
+                className={`block md:text-2xl w-full px-5 py-3 text-center font-medium text-white bg-primary hover:border-0 rounded-2xl active:scale-105 transition`}
+              >
+                <Popover.Button>Réserver</Popover.Button>
+              </Link>
             </div>
           </Popover.Panel>
         </Transition>
