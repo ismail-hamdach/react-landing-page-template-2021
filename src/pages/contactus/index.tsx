@@ -71,7 +71,7 @@ export default function ContactUs(): JSX.Element {
         <title>Barber House : Contact us</title>
       </Head>
 
-      <div className="w-full ">
+      <div className="w-full">
         <Popover>
           <div className="relative pt-12 px-6 sm:px-6 lg:px-8 ">
             <nav
@@ -101,7 +101,7 @@ export default function ContactUs(): JSX.Element {
 
       <LazyShow>
         <div className="my-20 flex justify-center">
-          <div className="rounded shadow-2xl w-11/12 sm:w-4/6">
+          <div className="rounded shadow-2xl w-11/12 sm:w-4/6  max-w-4xl">
             <div className="bg-primary text-white text-xl font-bold text-center p-2 rounded-t">
               Contactez-nous
             </div>

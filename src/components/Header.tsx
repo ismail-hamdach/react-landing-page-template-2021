@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -11,29 +11,63 @@ const Menu = () => {
   const { navigation, company } = config;
   const { name: companyName, logo } = company;
 
+  const [clientWindowHeight, setClientWindowHeight] = useState(0);
+
+  const handleScroll = () => {
+    setClientWindowHeight(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  const [backgroundTransparacy, setBackgroundTransparacy] = useState(0);
+  const [padding, setPadding] = useState(0);
+
+  useEffect(() => {
+    let backgroundTransparacyVar = clientWindowHeight / 600;
+
+    if (backgroundTransparacyVar < 1) {
+      let paddingVar = 3 - backgroundTransparacyVar * 2;
+      console.log(
+        "🚀 ~ file: Header.tsx:34 ~ useEffect ~ paddingVar:",
+        paddingVar
+      );
+      setBackgroundTransparacy(backgroundTransparacyVar * 100);
+      setPadding(paddingVar);
+    }
+  }, [clientWindowHeight]);
+
   return (
     <>
       <Popover>
-        <div className="relative pt-12 px-6 sm:px-6 lg:px-8 ">
+        <div
+          className={`relative  px-6 sm:px-6 lg:px-8 transition`}
+          style={{
+            background: `linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) ${backgroundTransparacy}%)`,
+            padding: `${padding}rem 1rem`,
+          }}
+        >
           <nav
-            className="relative flex items-center justify-between sm:h-10 lg:justify-between w-full "
+            className={`relative flex items-center justify-between sm:h-10 lg:justify-between w-full md:my-5`}
             aria-label="Global"
           >
             <div className="flex items-center justify-center flex-grow flex-shrink-0 lg:flex-grow-0">
               <div className="flex items-center justify-between lg:justify-center w-full lg:w-auto max-w-3xl">
                 <a href="/">
                   <span className="sr-only">{companyName}</span>
-                  <Image
-                    alt="logo"
-                    className="h-5 w-auto sm:h-2"
-                    width={200}
-                    height={50}
-                    objectFit="contain"
-                    src={logo}
-                  />
+                  <div className="relative h-10 w-40 md:h-12 md:w-64">
+                    <Image
+                      alt="logo"
+                      layout="fill"
+                      objectFit="contain"
+                      src={logo}
+                    />
+                  </div>
                 </a>
                 {/* Burger button */}
-                <div className="-mr-2 flex items-center lg:hidden">
+                <div className="mr-2 flex items-center lg:hidden">
                   <Popover.Button
                     className={`bg-background rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary`}
                   >
@@ -43,7 +77,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden lg:block lg:m-10 lg:pr-4 lg:space-x-8">
+            <div className="hidden lg:block lg:space-x-8">
               {navigation.map((item) => (
                 <Link
                   spy={true}
@@ -94,7 +128,7 @@ const Menu = () => {
             className="absolute z-50 top-0 inset-x-0 transition transform origin-top-left lg:hidden"
           >
             <div
-              className={`shadow-md bg-background h-screen overflow-hidden flex flex-col justify-between p-8`}
+              className={`shadow-md bg-background h-screen overflow-hidden flex flex-col justify-between px-8 pt-3 pb-12`}
             >
               <div>
                 <div className="px-4 pt-4 flex items-center justify-between">
@@ -143,7 +177,7 @@ const Menu = () => {
                 duration={1000}
                 key={"reservation"}
                 to={"Reservation"}
-                className={`block md:text-2xl w-full px-5 py-3 text-center font-medium text-white bg-primary hover:border-0 rounded-2xl active:scale-105 transition`}
+                className={`block md:text-2xl w-full px-5 mb-16 py-3 text-center font-medium text-white bg-primary hover:border-0 rounded-2xl active:scale-105 transition`}
               >
                 <Popover.Button>Réserver</Popover.Button>
               </Link>

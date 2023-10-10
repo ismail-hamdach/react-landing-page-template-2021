@@ -156,5 +156,14 @@
   "reservation": {
     "title": "Réservation et demande d'informations",
     "description": "Réservez votre coiffure dès maintenant et venez nous rendre visite pour une élégante coiffure."
+  },
+  "links": {
+    "instagram": "#",
+    "facebook": "#",
+    "location": "#",
+    "phone": "#",
+    "email": "#",
+    "privacyPolicy": "#",
+    "ideaConcept": "#"
   }
 }
